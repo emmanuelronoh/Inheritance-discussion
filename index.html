@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance in OOP Notes</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            color: #007bff;
+            font-size: 28px;
+            font-weight: bold;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .subheader {
+            color: #495057;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+            border-bottom: 1px solid #dee2e6;
+            padding-bottom: 5px;
+        }
+        .code {
+            background-color: #e9ecef;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #343a40;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre;
+            margin: 10px 0;
+        }
+        .text {
+            color: #212529;
+            margin: 10px 0;
+        }
+        .highlight {
+            background-color: #e2e3e5;
+            padding: 5px;
+            border-radius: 4px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #6c757d;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">Inheritance in Object-Oriented Programming</div>
+
+        <div class="subheader">1. Introduction to Inheritance</div>
+        <div class="text">
+            Inheritance is a fundamental concept in object-oriented programming (OOP) that allows one class to inherit properties and behaviors (methods) from another class. This promotes code reusability and establishes a natural hierarchy between classes.
+        </div>
+
+        <div class="subheader">2. Key Terms</div>
+        <div class="text">
+            <strong>Parent Class (Base Class, Superclass)</strong>: The class whose properties and methods are inherited.<br>
+            <strong>Child Class (Derived Class, Subclass)</strong>: The class that inherits properties and methods from the parent class.
+        </div>
+
+        <div class="subheader">3. Benefits of Inheritance</div>
+        <div class="text">
+            <strong>Code Reusability</strong>: Child classes can reuse code from parent classes, reducing redundancy.<br>
+            <strong>Extensibility</strong>: New functionality can be added to existing classes by creating new child classes.<br>
+            <strong>Maintainability</strong>: Changes made to the parent class automatically propagate to child classes, simplifying updates and maintenance.
+        </div>
+
+        <div class="subheader">4. Syntax for Inheritance</div>
+        <div class="text">
+            In Python, inheritance is implemented by specifying the parent class in parentheses when defining the child class.
+        </div>
+        <div class="code">
+            class ParentClass:<br>
+            &nbsp;&nbsp;def __init__(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;self.parent_attribute = "Parent Attribute"<br><br>
+            &nbsp;&nbsp;def parent_method(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print("This is a method from the Parent Class.")<br><br>
+            class ChildClass(ParentClass):<br>
+            &nbsp;&nbsp;def __init__(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;super().__init__()  # Call the __init__ method of the ParentClass<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;self.child_attribute = "Child Attribute"<br><br>
+            &nbsp;&nbsp;def child_method(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print("This is a method from the Child Class.")
+        </div>
+
+        <div class="subheader">5. Types of Inheritance</div>
+        <div class="subheader">Single Inheritance</div>
+        <div class="code">
+            class A:<br>
+            &nbsp;&nbsp;pass<br><br>
+            class B(A):<br>
+            &nbsp;&nbsp;pass
+        </div>
+
+        <div class="subheader">Multiple Inheritance</div>
+        <div class="code">
+            class A:<br>
+            &nbsp;&nbsp;pass<br><br>
+            class B:<br>
+            &nbsp;&nbsp;pass<br><br>
+            class C(A, B):<br>
+            &nbsp;&nbsp;pass
+        </div>
+
+        <div class="subheader">Multilevel Inheritance</div>
+        <div class="code">
+            class A:<br>
+            &nbsp;&nbsp;pass<br><br>
+            class B(A):<br>
+            &nbsp;&nbsp;pass<br><br>
+            class C(B):<br>
+            &nbsp;&nbsp;pass
+        </div>
+
+        <div class="subheader">Hierarchical Inheritance</div>
+        <div class="code">
+            class A:<br>
+            &nbsp;&nbsp;pass<br><br>
+            class B(A):<br>
+            &nbsp;&nbsp;pass<br><br>
+            class C(A):<br>
+            &nbsp;&nbsp;pass
+        </div>
+
+        <div class="subheader">Hybrid Inheritance</div>
+        <div class="text">
+            A combination of two or more types of inheritance.
+        </div>
+
+        <div class="subheader">6. Method Overriding</div>
+        <div class="text">
+            Child classes can provide specific implementations of methods that are already defined in their parent classes. This is called method overriding.
+        </div>
+        <div class="code">
+            class ParentClass:<br>
+            &nbsp;&nbsp;def show(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print("Show from ParentClass")<br><br>
+            class ChildClass(ParentClass):<br>
+            &nbsp;&nbsp;def show(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print("Show from ChildClass")<br><br>
+            obj = ChildClass()<br>
+            obj.show()  # Output: Show from ChildClass
+        </div>
+
+        <div class="subheader">7. Using super()</div>
+        <div class="text">
+            <strong>super()</strong> is used to call methods from the parent class within the child class. This is useful for extending or modifying inherited methods.
+        </div>
+        <div class="code">
+            class ParentClass:<br>
+            &nbsp;&nbsp;def __init__(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print("ParentClass __init__")<br><br>
+            class ChildClass(ParentClass):<br>
+            &nbsp;&nbsp;def __init__(self):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;super().__init__()  # Calls ParentClass __init__<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print("ChildClass __init__")<br><br>
+            obj = ChildClass()<br>
+            # Output:<br>
+            # ParentClass __init__<br>
+            # ChildClass __init__
+        </div>
+
+        <div class="subheader">8. Conclusion</div>
+        <div class="text">
+            Inheritance allows for creating a new class based on an existing class, facilitating code reuse and establishing a logical relationship between classes. Understanding and effectively using inheritance is key to building scalable and maintainable object-oriented systems.
+        </div>
+
+        <div class="footer">
+            &copy; 2024 Inheritance in OOP Notes. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
